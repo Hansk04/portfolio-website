@@ -2,16 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  scroll-behavior: smooth; // Keep smooth scroll for desktop
-}
-
-// iOS-only fixes using media queries
-@supports (-webkit-overflow-scrolling: touch) {
-  @media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
-    *, *::before, *::after {
-      scroll-behavior: auto !important; // Disable smooth scroll only on iOS
-    }
-  }
+  scroll-behavior: smooth;
 }
 
 html,
@@ -22,22 +13,8 @@ body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
-  overflow-y: scroll; // Keep normal scroll for desktop
-  
-  // Prevent iOS zoom on input focus
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-}
-
-// iOS-specific body fixes only
-@supports (-webkit-overflow-scrolling: touch) {
-  @media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
-    html, body {
-      -webkit-overflow-scrolling: auto; // Use auto instead of touch
-      overflow-y: auto;
-      position: relative;
-    }
-  }
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 h1,
@@ -68,99 +45,3 @@ li {
   margin: 0;
 }
 
-// Sidebar styles
-.social-sidebar {
-  position: fixed;
-  left: 30px;
-  bottom: 0;
-  width: 40px;
-  z-index: 10;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-
-  .social-line {
-    width: 2px;
-    height: 0;
-    background-color: var(--p-white);
-    animation: extendLine 0.5s ease-out 0.2s forwards;
-  }
-
-  .social-icons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    margin-bottom: 20px;
-
-    a {
-      .social-icon {
-        color: var(--p-white);
-        font-size: 1.5rem;
-        transition: color 0.3s ease, transform 0.3s ease;
-        opacity: 0;
-        transform: translateY(-100vh);
-        animation-name: fallFromSky;
-        animation-duration: 1.2s;
-        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        animation-fill-mode: forwards;
-      }
-
-      &:hover .social-icon {
-        color: var(--accent-color);
-        transform: scale(1.1) !important;
-      }
-    }
-
-    a:nth-child(4) .social-icon { animation-delay: 0s; }
-    a:nth-child(3) .social-icon { animation-delay: 0.4s; }
-    a:nth-child(2) .social-icon { animation-delay: 0.8s; }
-    a:nth-child(1) .social-icon { animation-delay: 1.2s; }
-  }
-}
-
-// iOS-only sidebar fixes
-@supports (-webkit-overflow-scrolling: touch) {
-  @media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
-    .social-sidebar {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-  }
-}
-
-@keyframes extendLine {
-  from { height: 0; }
-  to { height: 80px; }
-}
-
-@keyframes fallFromSky {
-  0% {
-    opacity: 0;
-    transform: translateY(-100vh);
-  }
-  10% {
-    opacity: 1;
-  }
-  70% {
-    transform: translateY(10px);
-  }
-  85% {
-    transform: translateY(-3px);
-  }
-  95% {
-    transform: translateY(2px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .social-sidebar {
-    display: none;
-  }
-}

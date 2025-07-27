@@ -5,39 +5,40 @@ import { About, Contact, Hero, Navbar, Projects, Sidebar, Walkman } from './comp
 
 const App = () => {
   useEffect(() => {
-    // Detect iOS more accurately
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    // Detect iOS
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     
     if (isIOS) {
-      // iOS-specific AOS settings
+      // Initialize AOS with iOS-friendly settings
       AOS.init({ 
-        duration: 600, // Shorter duration for iOS
-        easing: 'ease-out', // Simpler easing
-        once: true, // Animate only once
-        offset: 50 // Smaller offset
+        duration: 800, 
+        easing: 'ease-in-out-quad',
+        disable: 'mobile' // This might help - disables AOS on mobile
       });
       
-      // Minimal iOS scroll fix - just reset overflow on scroll events
-      let scrollTimer;
-      const handleScroll = () => {
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(() => {
-          // Force scroll recalculation
-          document.body.style.overflow = 'hidden';
-          requestAnimationFrame(() => {
-            document.body.style.overflow = '';
-          });
-        }, 150);
+      // Aggressive iOS scroll fix
+      document.documentElement.style.webkitOverflowScrolling = 'touch';
+      document.body.style.webkitOverflowScrolling = 'touch';
+      document.body.style.overflowY = 'scroll';
+      document.body.style.overflowX = 'hidden';
+      
+      // Force scroll reset on any touch
+      let scrollTimeout;
+      const forceScrollReset = () => {
+        clearTimeout(scrollTimeout);
+        document.body.style.overflowY = 'hidden';
+        scrollTimeout = setTimeout(() => {
+          document.body.style.overflowY = 'scroll';
+        }, 50);
       };
       
-      window.addEventListener('scroll', handleScroll, { passive: true });
+      document.addEventListener('touchend', forceScrollReset, { passive: true });
       
       return () => {
-        window.removeEventListener('scroll', handleScroll);
+        document.removeEventListener('touchend', forceScrollReset);
       };
     } else {
-      // Normal AOS init for desktop
+      // Normal AOS init for non-iOS
       AOS.init({ duration: 800, easing: 'ease-in-out-quad' });
     }
   }, []);
