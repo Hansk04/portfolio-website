@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --bg-color: #121212;
+  --T-white: #ffffff;
+  --p-white: #cecece;
+  --accent-color: #4AF626;
+  --grad-green: #a0f25d;
+  --nu-purple: #4E2A84;
+  --sep: rgba(255, 255, 255, 0.05);
+
+  //Name
+  --name-start-grad: #ffffff;
+  --name-grad2: #7ff695;
+  --name-grad3: #7ff695;
+  --name-grad4: #4af626;
+  //Res
+  --res-border: rgba(255, 255, 255, 0.8);
+  //Proj Card
+  --card-bg: rgba(30, 30, 30, 0.7);
+  --card-border: rgba(128, 128, 128, 0.3);
+  --card-hovborder: #b8b2b2;
+}
+
+body.light-theme {
+  --bg-color: #f2f2f2;
+  --T-white: #000000; 
+  --p-white: #333333; 
+  --accent-color: #15ae41; 
+  --grad-green: #a0f25d;
+  --nu-purple: #6d3fbb; 
+  --sep: rgba(0, 0, 0, 0.244);
+
+  //Name
+  --name-start-grad: #15ae41;
+  --name-grad2: #15ae41;
+  --name-grad3: #15ae41;
+  --name-grad4: #15ae41;
+  //Res
+  --res-border: rgba(0, 0, 0, 0.8);
+  //Proj Card
+  --card-bg: rgb(255, 255, 255);
+  --card-border: rgba(167, 167, 167, 0.685);
+  --card-hovborder: #000000;
+}

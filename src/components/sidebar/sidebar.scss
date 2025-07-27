@@ -1,0 +1,95 @@
+.social-sidebar {
+    position: fixed;
+    left: 30px;
+    bottom: 0;
+    width: 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  
+    .social-line {
+      width: 2px;
+      height: 0;
+      background-color: var(--p-white);
+      animation: extendLine 0.5s ease-out 0.2s forwards;
+    }
+  
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      a {
+        /* Animate inner icon */
+        .social-icon {
+          color: var(--p-white);
+          font-size: 1.5rem;
+          transition: color 0.3s ease, transform 0.3s ease;
+          opacity: 0;
+          transform: translateY(-100vh);
+          animation-name: fallFromSky;
+          animation-duration: 1.2s;
+          animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          animation-fill-mode: forwards;
+        }
+  
+        &:hover .social-icon {
+          color: var(--accent-color);
+          transform: scale(1.1) !important;
+        }
+      }
+  
+      /* Reversed animation delays - email first, github last */
+      a:nth-child(4) .social-icon { /* Email */
+        animation-delay: 0s;
+      }
+      a:nth-child(3) .social-icon { /* Instagram */
+        animation-delay: 0.4s;
+      }
+      a:nth-child(2) .social-icon { /* LinkedIn */
+        animation-delay: 0.8s;
+      }
+      a:nth-child(1) .social-icon { /* GitHub */
+        animation-delay: 1.2s;
+      }
+    }
+  }
+  
+  /* Animation keyframes remain the same */
+  @keyframes extendLine {
+    from { height: 0; }
+    to { height: 80px; }
+  }
+  
+  @keyframes fallFromSky {
+    0% {
+      opacity: 0;
+      transform: translateY(-100vh);
+    }
+    10% {
+      opacity: 1;
+    }
+    70% {
+      transform: translateY(10px);
+    }
+    85% {
+      transform: translateY(-3px);
+    }
+    95% {
+      transform: translateY(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive styles */
+ @media (max-width: 768px) {
+  .social-sidebar {
+    display: none;
+  }
+}

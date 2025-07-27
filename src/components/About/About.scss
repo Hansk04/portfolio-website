@@ -1,0 +1,174 @@
+.about {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  padding: 5%;
+  display: flex;
+  align-items: center;
+
+  &__content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  &__left {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  &__right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    color: var(--T-white);
+    margin-bottom: 2rem;
+  }
+
+  &__text p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--p-white);
+    margin-bottom: 1.5rem;
+  }
+
+  .headshot-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    
+    .headshot-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 2px solid var(--p-white);
+      border-radius: 5px;
+      transition: transform 0.4s ease;
+      filter: contrast(1.1) brightness(0.9);
+      position: relative;
+      z-index: 1;
+      
+      &:hover {
+        transform: translate(15px, -15px);
+      }
+    }
+    
+    .headshot-border {
+      position: absolute;
+      top: -15px;
+      left: 15px;
+      width: 100%;
+      height: 100%;
+      border: 3px dashed var(--p-white);
+      border-radius: 5px;
+      z-index: 0;
+    }
+  }
+
+  .tools-section {
+    margin-top: 4rem;
+    
+    .tools-header {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.8rem;
+      color: var(--T-white);
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .tools-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .tool-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--p-white);
+    
+    svg {
+      font-size: 1rem;
+      color: var(--T-white);
+      transition: all 0.2s ease;
+      
+      &:hover {
+        color: var(--accent-color);
+        transform: scale(1.15);
+      }
+    }
+  }
+
+  .resume-button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: var(--T-white);
+    background: transparent;
+    border: 1.5px solid var(--res-border);
+    border-radius: 5px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    
+    &:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      
+      .resume-icon {
+        color: var(--accent-color);
+      }
+    }
+    
+    .resume-icon {
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+  }
+}
+
+[data-aos] {
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.1);
+}
+
+@media (max-width: 1024px) {
+  .about__content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 3rem 5%;
+    
+    &__title { font-size: 1.2rem; }
+    &__text p { font-size: 0.8rem; }
+    
+    .headshot-container {
+      width: 250px;
+      height: 250px;
+    }
+    
+    .tools-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

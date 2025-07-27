@@ -1,0 +1,396 @@
+.projects {
+  background-color: var(--bg-color);
+  padding: 5rem 5%;
+  color: var(--accent-color);
+  position: relative;
+  overflow: hidden;
+
+  &__title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    text-align: left;
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+    padding-left: 0;
+    color: var(--T-white);
+    position: relative;
+    display: block;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 7px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: var(--card-hovborder);
+  }
+
+  &__cover {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 110%;
+      height: 110%;
+      object-fit: cover;
+      filter: grayscale(30%) contrast(1.2);
+      transition: transform 0.5s ease;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.77));
+      z-index: 1;
+    }
+  }
+
+  &:hover &__cover img {
+    transform: scale(1.1);
+  }
+
+  &__content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--T-white);
+    position: relative;
+    padding-bottom: 0.5rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 1px;
+      background: var(--T-white);
+    }
+  }
+
+  &__description {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--p-white);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  &__action-row {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__button {
+    width: auto;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    background: transparent;
+    color: var(--p-white);
+    border: 1.2px solid var(--card-border);
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(20, 22, 19, 0.1), transparent);
+      transition: 0.5s;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+      border-color: var(--res-border);
+      color: var(--T-white);
+
+      &::before {
+        left: 100%;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding-right: 0.5rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.05);
+
+        svg {
+          color: var(--accent-color) !important;
+        }
+      }
+
+      svg {
+        width: 22px;
+        height: 22px;
+        pointer-events: none;
+        color: #777;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+
+  &__details {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--p-white);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    animation: fadeIn 0.5s ease;
+    line-height: 1.6;
+  }
+
+  &__tools {
+    margin-top: 0rem;
+    padding-top: 1rem;
+
+    &-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--p-white);
+      margin-bottom: 0.75rem;
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+    }
+
+    &-list {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    &-tool {
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      color: var(--p-white);
+      flex-direction: column;
+      gap: 0.25rem;
+
+      &:hover {
+        transform: translateY(-3px);
+        color: var(--accent-color);
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      span {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 0.65rem;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &.expanded {
+    grid-row-end: span 2;
+
+    .project-card__description {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 1024px) {
+  .projects {
+    padding: 4rem 5%;
+
+    &__grid {
+      gap: 1.75rem;
+    }
+  }
+
+  .project-card {
+    &__cover {
+      height: 180px;
+    }
+
+    &__tools {
+      &-list {
+        gap: 1.1rem;
+      }
+
+      &-tool svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 3rem 5%;
+
+    &__title {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .project-card {
+    &__content {
+      padding: 1.25rem;
+    }
+
+    &__links {
+      gap: 1rem;
+      padding-right: 0.25rem;
+    }
+
+    &__button {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+    }
+
+    &__tools {
+      &-list {
+        gap: 1rem;
+      }
+
+      &-tool {
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        span {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 2.5rem 5%;
+
+    &__title {
+      font-size: 1.1rem;
+    }
+  }
+
+  .project-card {
+    &__content {
+      padding: 1rem;
+    }
+
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__description {
+      font-size: 0.85rem;
+    }
+
+    &__links {
+      gap: 0.75rem;
+
+      a svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__button {
+      font-size: 0.7rem;
+    }
+
+    &__details {
+      font-size: 0.75rem;
+    }
+
+    &__tools {
+      margin-top: 1rem;
+
+      &-title {
+        font-size: 0.75rem;
+      }
+
+      &-list {
+        gap: 0.8rem;
+      }
+
+      &-tool {
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+
+        span {
+          font-size: 0.55rem;
+        }
+      }
+    }
+  }
+}

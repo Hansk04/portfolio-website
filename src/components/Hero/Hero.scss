@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.hero {
+  background-color: var(--bg-color);
+  color: var(--T-white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  position: relative;
+  overflow: hidden;
+
+  &__content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__text {
+    flex: 1;
+    z-index: 2;
+    min-width: 300px; 
+  }
+
+  &__title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.3rem;
+    color: var(--p-white);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+  }
+
+  &__name {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(170deg,var(--name-start-grad) 0%, var(--name-grad2) 50%, var(--name-grad3) 65%, var(--name-grad4) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+  }
+
+  &__subtitle {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--T-white);
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+    min-height: 2.5rem;
+  }
+
+  &__animation-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    position: relative;
+    width: 100%;
+  }
+
+  .spline-viewer {
+    width: 100%;
+    height: 100%;
+    max-width: 600px; 
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    &__content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__name {
+      font-size: 2.5rem;
+    }
+
+    &__animation-container {
+      min-height: 400px;
+      margin-top: 2rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    &__name {
+      font-size: 2rem;
+    }
+
+    &__animation-container {
+      min-height: 300px;
+    }
+
+    .spline-viewer {
+      max-width: 100%;
+    }
+  }
+}
+
+.hero__subtitle span.northwestern-purple {
+  color: var(--nu-purple) !important;
+}
