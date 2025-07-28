@@ -4,7 +4,6 @@ import "./Walkman.scss";
 import Vinyl from "../../assets/images/vinyl.svg?react";
 import TonearmOff from "../../assets/images/tonearmOff.svg?react";
 import TonearmOn from "../../assets/images/tonearmOn.svg?react";
-import pianoAudioSrc from "../../assets/audio/mainmusic.mp3";
 
 interface AudioElementWithPromise extends HTMLAudioElement {
   playPromise?: Promise<void>;
