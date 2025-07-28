@@ -18,7 +18,7 @@ const About = () => {
 
   const handleDownloadResume = () => {
     try {
-      const resumeUrl = '/src/assets/resume.pdf';
+      const resumeUrl = '/assets/resume.pdf';
       window.open(resumeUrl, '_blank');
     } catch (error) {
       console.error('Failed to open resume:', error);

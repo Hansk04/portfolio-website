@@ -4,7 +4,7 @@ import "./Walkman.scss";
 import Vinyl from "../../assets/images/vinyl.svg?react";
 import TonearmOff from "../../assets/images/tonearmOff.svg?react";
 import TonearmOn from "../../assets/images/tonearmOn.svg?react";
-import pianoAudioSrc from "../../assets/audio/piano.mp3";
+import pianoAudioSrc from "../../assets/audio/mainmusic.mp3";
 
 interface AudioElementWithPromise extends HTMLAudioElement {
   playPromise?: Promise<void>;
@@ -46,6 +46,8 @@ const Walkman: React.FC = () => {
     };
   }, []);
 
+  const audioSrc = "/assets/mainmusic.mp3";
+
   return (
     <div className="walkman" role="region" aria-label="Audio player">
       <button
@@ -68,7 +70,7 @@ const Walkman: React.FC = () => {
 
       <audio
         ref={audioRef}
-        src={pianoAudioSrc}
+        src={audioSrc}
         onEnded={onAudioEnded}
         preload="metadata"
         aria-hidden="true"
