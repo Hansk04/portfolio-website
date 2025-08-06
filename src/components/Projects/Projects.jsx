@@ -4,11 +4,11 @@ import Project1Cover from '/src/assets/images/project1.jpg';
 import Project2Cover from '/src/assets/images/project2.jpg';
 import Project3Cover from '/src/assets/images/project3.jpg';
 
-import { FaGithub } from 'react-icons/fa';      
+import { FaGithub, FaSass } from 'react-icons/fa';      
 import { ImGoogleDrive } from 'react-icons/im'; 
 
 import { FaReact, FaPython, FaJs, FaHtml5, FaCss3Alt } from 'react-icons/fa';
-import { SiOpencv, SiTensorflow, SiVite, SiBlender } from 'react-icons/si';
+import { SiOpencv, SiTensorflow, SiVite, SiBlender, SiJavascript } from 'react-icons/si';
 import { BiLogoFigma } from 'react-icons/bi';
 
 const Projects = () => {
@@ -34,12 +34,12 @@ const Projects = () => {
       description: "Modern responsive portfolio built with Vite and vanilla JavaScript",
       cover: Project2Cover,
       details: "A sleek, performance-optimized personal website showcasing projects and skills. Built from scratch using Vite for fast development and bundling, with clean HTML, CSS, and JavaScript for optimal loading speed and user experience.",
-      github: "https://github.com/yourusername/personal-portfolio",
+      github: "https://github.com/Hansk04/portfolio-website",
       tools: [
-        { icon: <FaJs size={24} />, name: "JavaScript" },
-        { icon: <FaHtml5 size={24} />, name: "HTML5" },
-        { icon: <FaCss3Alt size={24} />, name: "CSS3" },
-        { icon: <SiVite size={24} />, name: "Vite" }
+        { icon: <FaReact size={24} />, name: "React" },
+        { icon: <SiVite size={24} />, name: "Vite" },
+        { icon: <FaSass size={24} />, name: "SCSS" },
+        { icon: <SiJavascript size={24} />, name: "Javascript (Jsx)" }
       ]
     },
     {
