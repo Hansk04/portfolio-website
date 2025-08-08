@@ -5,7 +5,7 @@ import { FaGithub, FaSass } from 'react-icons/fa';
 import { ImGoogleDrive } from 'react-icons/im'; 
 
 import { FaReact, FaPython, FaJs, FaHtml5, FaCss3Alt } from 'react-icons/fa';
-import { SiOpencv, SiTensorflow, SiVite, SiBlender, SiJavascript } from 'react-icons/si';
+import { SiOpencv, SiTensorflow, SiVite, SiBlender, SiJavascript, SiNumpy, SiPandas, SiPlotly, SiScikitlearn } from 'react-icons/si';
 import { BiLogoFigma } from 'react-icons/bi';
 
 const Projects = () => {
@@ -15,20 +15,20 @@ const Projects = () => {
     {
       id: 1,
       title: "Video Sports Analytics",
-      description: "Computer vision system for automated player tracking and team performance analysis",
+      description: "Computer vision system for automated player tracking and performance analysis",
       cover: "assets/projects_covers/project1.jpg",
       details: "Advanced computer vision and machine learning application that analyzes sports video footage to automatically track players, distinguish between teams, calculate ball possession percentages, and measure player speeds in real-time.",
       github: "https://github.com/yourusername/video-sports-analytics",
       tools: [
         { icon: <FaPython size={24} />, name: "Python" },
         { icon: <SiOpencv size={24} />, name: "OpenCV" },
-        { icon: <SiTensorflow size={24} />, name: "TensorFlow" }
+        { icon: <SiTensorflow size={24} />, name: "TensorFlow" },
       ]
     },
     {
       id: 2,
       title: "Personal Portfolio Website",
-      description: "Modern responsive portfolio built with Vite and vanilla JavaScript",
+      description: "Modern responsive portfolio built with React, Vite and vanilla JavaScript",
       cover: "assets/projects_covers/project2.jpg",
       details: "A sleek, performance-optimized personal website showcasing projects and skills. Built from scratch using Vite for fast development and bundling, with clean HTML, CSS, and JavaScript for optimal loading speed and user experience.",
       github: "https://github.com/Hansk04/portfolio-website",
@@ -41,15 +41,16 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: "FlowStand",
-      description: "Product design portfolio of a smart nightstand, fully conceptualized, designed and built.",
-      cover: "assets/projects_covers/project3.jpg",
-      details: "This project showcases the end-to-end product design lifecycle, including market research, conceptual sketching, 3D CAD modeling, material selection, and interface design for an innovative smart nightstand.",
-      github: "https://github.com/yourusername/flowstand",
-      googleDrive: "https://drive.google.com/your-flowstand-folder",
+      title: "Built Different",
+      description: "Ranking the world's toughest sports through data-driven analysis",
+      cover: "assets/projects_covers/project9.jpg",
+      details: "Data-driven analysis of athletic skill ratings across 60 sports to quantify toughness and specialization patterns. Features interactive visualizations, clustering analysis, and dimensionality reduction to reveal which sports demand the most diverse skill sets and how athletic attributes correlate across disciplines.",      
+      github: "https://github.com/Hansk04/Data-science-portfolio/blob/main/Sports_Toughness_EDA.ipynb",
       tools: [
-        { icon: <BiLogoFigma size={24} />, name: "Figma" },
-        { icon: <SiBlender size={24} />, name: "Blender" }
+        { icon: <SiNumpy size={24} />, name: "Numpy" },
+        { icon: <SiPandas size={24} />, name: "Pandas" },
+        { icon: <SiPlotly size={24} />, name: "Plotly" },
+        { icon: <SiScikitlearn size={24} />, name: "Scikit-learn" }
       ]
     }
   ];
