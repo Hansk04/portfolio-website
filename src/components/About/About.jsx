@@ -18,7 +18,7 @@ const About = () => {
 
   const handleDownloadResume = () => {
     try {
-      const resumeUrl = '/assets/resume.pdf';
+      const resumeUrl = '/assets/resume_1.pdf';
       window.open(resumeUrl, '_blank');
     } catch (error) {
       console.error('Failed to open resume:', error);
@@ -56,7 +56,7 @@ return (
             data-aos-delay="600"
             data-aos-anchor="#about"
           >
-              Currently studying Data Science and Economics at Northwestern University, I plan to specialize 
+              Currently studying Data Science and Statistics at Northwestern University, I plan to specialize 
               in anything from AI work to sports analytics.
           </p>
           
